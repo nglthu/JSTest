@@ -1,47 +1,42 @@
-var gold={a:1};
+var gold = {
+	a: 1
+};
 console.log(gold.a)
-
-//one time copying
-//var blue=extends({},gold);
-//console.log(blue);
-
-//on-going copying
-var rose=Object.create(gold);
-gold.z=2;
+	//one time copying
+	//var blue=extends({},gold);
+	//console.log(blue);
+	//on-going copying
+var rose = Object.create(gold);
+gold.z = 2;
 console.log(rose.a);
 console.log(rose.z);
 console.log(rose.toString());
-
 //binding function
-var carlike=function(obj, loc){
-	obj.loc=loc;
-	
-	obj.move =  move;
+var carlike = function (obj, loc) {
+	obj.loc = loc;
+	obj.move = move;
 	//can be moved move inside function
 	//obj.move = function(){
 	//	obj.loc++
 	//}
 	return obj;
 };
-var move = function(){
-	this.loc ++;
+var move = function () {
+	this.loc++;
 };
-
-var amy = carlike({},1);
+var amy = carlike({}, 1);
 amy.move();
 console.log(amy.loc);
-
 //function object
 var makeAnObject = function () {
-	return function(){};//return function object
+	return function () {}; //return function object
 };
-var obj1 =  makeAnObject();
+var obj1 = makeAnObject();
 var obj2 = makeAnObject();
 //return false, different identity
-console.log("function object:",(obj1===obj2));
-
+console.log("function object:", (obj1 === obj2));
 //Class-contractor-method
-
+/*
 var Car = function(loc){
 	obj ={loc : loc};
 	obj.moveTest = moveTest();
@@ -70,19 +65,25 @@ ben.moveTest;
 console.log(ben.loc);
 ben.on;
 ben.off;
-
-/*var Car = function (loc){
-var obj = {loc:loc};
-extend (obj, methods);
+*/
+var Car = function (loc) {
+	this.loc = loc;
+	return this;
 };
-var methods={
-	on:function(){
-		console.log("Test method");
-	},
-	off:function(){
-		console.log("test");
+Car.prototype.moveCar = function () {
+	this.loc++;
+	console.log("Test Movecar method");
+};
+Car.prototype = {
+	on: function () {
+		console.log("Test ON method");
+	}
+	, off: function () {
+		console.log("test OFF method");
 	}
 };
-var ben =Car(5);
-	ben.on();*/
-
+var ben = new Car(5);
+console.log(" constructor" + ben.constructor);
+ben.on();
+ben.off();
+ben.moveCar();
