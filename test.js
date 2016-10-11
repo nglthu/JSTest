@@ -74,16 +74,30 @@ Car.prototype.moveCar = function () {
 	this.loc++;
 	console.log("Test Movecar method");
 };
-Car.prototype = {
+/*Car.prototype = {
 	on: function () {
 		console.log("Test ON method");
 	}
 	, off: function () {
 		console.log("test OFF method");
 	}
-};
+};*/
 var ben = new Car(5);
 console.log(" constructor" + ben.constructor);
-ben.on();
-ben.off();
+/*ben.on();
+ben.off();*/
 ben.moveCar();
+//sub class and class
+
+var Van = function(loc){
+	Car.call(this, loc);
+	
+	
+};
+Van.prototype = Object.create(Car.prototype);
+Van.prototype.call = function (){
+	console.log("Test Van call method:")
+};
+var van = new Van(5);
+van.moveCar;
+van.call();
