@@ -44,30 +44,32 @@ console.log("function object:",(obj1===obj2));
 
 var Car = function(loc){
 	obj ={loc : loc};
-	obj.moveTest = moveTest;
-	obj.on = on;
-	obj.off = off;
+	obj.moveTest = moveTest();
+	obj.on = on();
+	obj.off = off();
 };
 
 //implement method for class
-var moveTest = function (){
+var moveTest = function(){
 	this.loc++;
-	console.log("loc:"+this.loc);
+	
+	;
 };
 
-var on = function (){
+var on = function(){
 	console.log("testing:");
 	
 };
 
-var off = function (){
+var off = function(){
 	console.log("test implement method");
 };
 
-var ben = Car(5);
-ben.moveTest();
-ben.on();
-ben.off();
+var ben = new Car(5);
+ben.moveTest;
+console.log(ben.loc);
+ben.on;
+ben.off;
 
 /*var Car = function (loc){
 var obj = {loc:loc};
