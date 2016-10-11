@@ -18,11 +18,20 @@ var carlike=function(obj, loc){
 	
 	obj.move =  move;
 	return obj;
-}
+};
 var move = function(){
 	this.loc ++;
-}
+};
 
 var amy = carlike({},1);
 amy.move();
 console.log(amy.loc);
+
+//function object
+var makeAnObject = function () {
+	return function(){};//return function object
+};
+var obj1 =  makeAnObject();
+var obj2 = makeAnObject();
+//return false, different identity
+console.log("function object:",(obj1===obj2));
