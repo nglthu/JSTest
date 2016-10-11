@@ -27,6 +27,7 @@ var move = function () {
 var amy = carlike({}, 1);
 amy.move();
 console.log(amy.loc);
+
 //function object
 var makeAnObject = function () {
 	return function () {}; //return function object
@@ -70,6 +71,7 @@ var Car = function (loc) {
 	this.loc = loc;
 	return this;
 };
+//Method for class Car
 Car.prototype.moveCar = function () {
 	this.loc++;
 	console.log("Test Movecar method");
@@ -98,6 +100,8 @@ Van.prototype = Object.create(Car.prototype);
 Van.prototype.call = function (){
 	console.log("Test Van call method:")
 };
+Van.prototype.constructor = Van;
 var van = new Van(5);
 van.moveCar;
 van.call();
+console.log(van.constructor);
