@@ -89,8 +89,8 @@ console.log(" constructor" + ben.constructor);
 /*ben.on();
 ben.off();*/
 ben.moveCar();
-//sub class and class
 
+//sub class and class
 var Van = function(loc){
 	Car.call(this, loc);
 	
