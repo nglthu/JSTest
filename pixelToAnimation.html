@@ -35,6 +35,15 @@
 				draw();
 				
 			});
+			
+			function handleMouseClick(evt){
+				x = evt.clientX - v.offsetLeft;
+				y = evt.clientY - v.offsetTop;
+				console.log("x,y:"+x+","+y);
+			}
+			v.addEventListener('click',handleMouseClick,false);
+			
+			
 		});
 	</script>
 	</body>
